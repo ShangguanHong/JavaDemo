@@ -24,7 +24,7 @@ public class CountryController {
 
     @RequestMapping(value = "/country", method = RequestMethod.GET)
     public Country findCountryByCode(@RequestParam String code) {
-        Country country = countryMapper.selectByPrimaryKey(code);
+        Country country = countryMapper.selectByCode(code);
         return country;
     }
 }
