@@ -11,6 +11,8 @@
 
     <modules>
         <module>springboot_mybatis</module>
+        <module>springboot_jpa</module>
+        <module>springboot_poi</module>
     </modules>
 
     <build>
