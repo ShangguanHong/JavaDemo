@@ -13,6 +13,7 @@
         <module>springboot_mybatis</module>
         <module>springboot_jpa</module>
         <module>springboot_poi</module>
+        <module>springboot_swagger2</module>
     </modules>
 
     <build>

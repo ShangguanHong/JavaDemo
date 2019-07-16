@@ -6,7 +6,7 @@
     <title>上传Excel文件</title>
 </head>
 <body>
-<form action="#" th:action="@{/excel/upload}" enctype="multipart/form-data" method="post">
+<form th:action="@{/excel/upload}" enctype="multipart/form-data" method="post">
     <input type="file" name="file"/>
     <br/>
     <button type="submit">开始导入</button>

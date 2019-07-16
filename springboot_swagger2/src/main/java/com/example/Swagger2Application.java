@@ -5,16 +5,18 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
+ *
+ *
  * @author sgh
- * @date 2019/7/14 13:48
+ * @date 2019/7/16 20:55
  */
 
 @SpringBootApplication
 @MapperScan("com.example.mapper")
-public class SpringbootPoiApplication {
+public class Swagger2Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringbootPoiApplication.class, args);
+        SpringApplication.run(Swagger2Application.class, args);
     }
 
 }
