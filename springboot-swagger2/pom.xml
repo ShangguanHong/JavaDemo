@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>swagger2</artifactId>
+    <artifactId>springboot-swagger2</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>swagger2</name>
+    <name>springboot-swagger2</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

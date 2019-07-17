@@ -1,6 +1,6 @@
-package com.example.demo.mapper;
+package com.example.mapper;
 
-import com.example.demo.model.Country;
+import com.example.model.Country;
 
 /**
  * CountryMapper class

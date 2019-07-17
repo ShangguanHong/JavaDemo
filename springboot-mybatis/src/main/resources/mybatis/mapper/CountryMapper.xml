@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.example.demo.mapper.CountryMapper">
-    <resultMap id="CountryMap" type="com.example.demo.model.Country">
+<mapper namespace="com.example.mapper.CountryMapper">
+    <resultMap id="CountryMap" type="com.example.model.Country">
         <id column="code" property="code" jdbcType="VARCHAR"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
         <result column="population" property="population" jdbcType="INTEGER"/>
@@ -19,13 +19,13 @@
     delete from country
     where code = #{code,jdbcType=VARCHAR}
   </delete>
-    <insert id="insert" parameterType="com.example.demo.model.Country">
+    <insert id="insert" parameterType="com.example.model.Country">
     insert into country (code, name, population
       )
     values (#{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{population,jdbcType=INTEGER}
       )
   </insert>
-    <insert id="insertSelective" parameterType="com.example.demo.model.Country">
+    <insert id="insertSelective" parameterType="com.example.model.Country">
         insert into country
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="code != null">
@@ -50,7 +50,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByCodeSelective" parameterType="com.example.demo.model.Country">
+    <update id="updateByCodeSelective" parameterType="com.example.model.Country">
         update country
         <set>
             <if test="name != null">
@@ -62,7 +62,7 @@
         </set>
         where code = #{code,jdbcType=VARCHAR}
     </update>
-    <update id="updateByCode" parameterType="com.example.demo.model.Country">
+    <update id="updateByCode" parameterType="com.example.model.Country">
     update country
     set name = #{name,jdbcType=VARCHAR},
       population = #{population,jdbcType=INTEGER}
