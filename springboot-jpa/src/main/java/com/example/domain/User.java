@@ -28,6 +28,9 @@ public class User {
     @Column(name = "user_addr")
     private String userAddr;
 
+    @Column(name = "email")
+    private String Email;
+
     @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "sys_user_role",
             joinColumns = {@JoinColumn(name = "u_id", referencedColumnName = "id")},
