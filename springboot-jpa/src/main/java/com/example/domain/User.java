@@ -36,4 +36,14 @@ public class User {
             joinColumns = {@JoinColumn(name = "u_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "r_id", referencedColumnName = "id")})
     private Set<Role> roles = new HashSet<>();
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", userAddr='" + userAddr + '\'' +
+                ", Email='" + Email + '\'' +
+                '}';
+    }
 }
