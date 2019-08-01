@@ -20,7 +20,6 @@
         <module>springboot-poi</module>
         <module>springboot-swagger2</module>
         <module>springboot-mapstruct</module>
-        <module>springboot-slf4j</module>
     </modules>
 
     <build>
