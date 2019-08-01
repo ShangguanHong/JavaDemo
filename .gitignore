@@ -17,7 +17,6 @@ HELP.md
 ### IntelliJ IDEA ###
 .idea
 *.iws
-*.iml
 *.ipr
 
 ### NetBeans ###
@@ -54,8 +53,6 @@ HELP.md
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-
-target/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
