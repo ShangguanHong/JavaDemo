@@ -13,10 +13,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan("com.example.swagger.mapper")
-public class SpringBootSwagger2Application {
+public class SpringBootSwaggerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootSwagger2Application.class, args);
+        SpringApplication.run(SpringBootSwaggerApplication.class, args);
     }
 
 }

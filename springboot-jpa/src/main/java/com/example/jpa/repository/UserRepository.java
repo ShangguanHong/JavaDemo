@@ -14,11 +14,11 @@ import javax.transaction.Transactional;
  */
 public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificationExecutor<User> {
 
-    @Query(value = "from User where userName = ?1")
+    @Query(value = "from User where username = ?1")
     User findByUserName(String userName);
 
     @Modifying
-    @Query(value = "update User set userName = ?1 where id = ?2")
+    @Query(value = "update User set username = ?1 where id = ?2")
     int modifyByIdAndUserId(String userName, Long id);
 
     @Transactional

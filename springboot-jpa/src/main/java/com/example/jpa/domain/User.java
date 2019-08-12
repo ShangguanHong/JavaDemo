@@ -22,28 +22,15 @@ public class User {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "user_name")
-    private String userName;
+    @Column(name = "username")
+    private String username;
 
-    @Column(name = "user_addr")
-    private String userAddr;
-
-    @Column(name = "email")
-    private String Email;
+    @Column(name = "password")
+    private String password;
 
     @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "sys_user_role",
             joinColumns = {@JoinColumn(name = "u_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "r_id", referencedColumnName = "id")})
     private Set<Role> roles = new HashSet<>();
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", userAddr='" + userAddr + '\'' +
-                ", Email='" + Email + '\'' +
-                '}';
-    }
 }
