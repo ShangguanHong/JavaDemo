@@ -25,4 +25,6 @@ public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificat
     @Modifying
     @Query(value = "delete from User where id = ?1")
     void deleteByUserId(Long id);
+
+    User findByUsername(String username);
 }

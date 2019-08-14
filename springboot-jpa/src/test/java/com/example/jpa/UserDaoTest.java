@@ -23,7 +23,7 @@ public class UserDaoTest {
         // 查找所有用户
         userRepository.findAll();
         // 根据id查找用户
-        userRepository.findById(1l);
+        userRepository.findById(1L);
         // 保存/更新用户信息
         userRepository.save(user);
         // 删除用户
@@ -31,7 +31,7 @@ public class UserDaoTest {
         // 统计用户数量
         userRepository.count();
         // 通过id查找用户是否存在
-        userRepository.existsById(1l);
+        userRepository.existsById(1L);
         // ...
     }
 }
