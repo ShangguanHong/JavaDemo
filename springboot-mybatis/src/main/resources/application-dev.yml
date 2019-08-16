@@ -28,7 +28,7 @@ spring:
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
-  type-aliases-package: com.example.model
+  type-aliases-package: com.example.mybatis.model
 
 pagehelper:
   helperDialect: mysql

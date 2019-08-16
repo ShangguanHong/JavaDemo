@@ -9,4 +9,4 @@ spring:
 
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml
-  type-aliases-package: com.example.domain
+  type-aliases-package: com.example.swagger.domain

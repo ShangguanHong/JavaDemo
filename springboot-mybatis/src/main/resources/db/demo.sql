@@ -4,18 +4,7 @@
 -- Server OS:                    Win32
 -- HeidiSQL 版本:                  10.1.0.5464
 -- --------------------------------------------------------
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT = @@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8 */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS = @@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS = 0 */;
-/*!40101 SET @OLD_SQL_MODE = @@SQL_MODE, SQL_MODE = 'NO_AUTO_VALUE_ON_ZERO' */;
-
-
--- Dumping database structure for demo
-CREATE DATABASE IF NOT EXISTS `demo` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `demo`;
-
+DROP TABLE IF EXISTS `country`;
 -- Dumping structure for table demo.country
 CREATE TABLE IF NOT EXISTS `country`
 (

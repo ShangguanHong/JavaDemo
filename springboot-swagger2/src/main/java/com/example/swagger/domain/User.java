@@ -3,8 +3,6 @@ package com.example.swagger.domain;
 import lombok.Data;
 
 /**
- *
- *
  * @author sgh
  * @date 2019/7/16 20:55
  */

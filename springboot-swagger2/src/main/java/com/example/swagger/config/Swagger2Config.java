@@ -27,7 +27,7 @@ public class Swagger2Config {
                 .apiInfo(apiInfo())
                 .select()
                 // swagger2要扫描的接口的包
-                .apis(RequestHandlerSelectors.basePackage("com.example.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.example.swagger.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }

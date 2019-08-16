@@ -20,34 +20,34 @@ public interface UserRoleMapper {
      */
     UserRoleMapper INSTANCE = Mappers.getMapper(UserRoleMapper.class);
 
-    // 使用单一对象
+    /**
+     * 使用单一对象
+     *
+     * @param user user
+     * @return UserRoleDto
+     */
+
     @Mappings({
             @Mapping(source = "id", target = "userId"),
             @Mapping(source = "name", target = "userName"),
             @Mapping(source = "addr", target = "userAddr"),
             @Mapping(source = "role.name", target = "roleName"),
     })
-    /**
-     * 1
-     *
-     * @param user 1
-     * @return 1
-     */
     UserRoleDto toUserRoleDto(User user);
 
-    // 使用两个对象
+
+    /**
+     * 使用两个对象
+     *
+     * @param user user
+     * @param role role
+     * @return UserRoleDto
+     */
     @Mappings({
             @Mapping(source = "user.id", target = "userId"),
             @Mapping(source = "user.name", target = "userName"),
             @Mapping(source = "user.addr", target = "userAddr"),
             @Mapping(source = "role.name", target = "roleName"),
     })
-    /**
-     * 1
-     *
-     * @param user 1
-     * @param role 1
-     * @return 1
-     */
     UserRoleDto toUserRoleDto(User user, Role role);
 }

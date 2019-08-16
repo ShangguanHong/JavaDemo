@@ -4,10 +4,10 @@ import com.example.poi.domain.User;
 import com.example.poi.mapper.UserMapper;
 import com.example.poi.service.ExcelService;
 import com.example.poi.utils.ExcelUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -17,12 +17,12 @@ import java.util.List;
 @Service
 public class ExcelServiceImpl implements ExcelService {
 
-    @Autowired
+    @Resource
     private UserMapper userMapper;
 
     @Override
     public Boolean readExcelFile(MultipartFile file) {
-        Boolean result;
+        boolean result;
         ExcelUtil excel = new ExcelUtil();
         List<User> userList = excel.getExcelInfo(file);
         if (userList != null && !userList.isEmpty()) {
