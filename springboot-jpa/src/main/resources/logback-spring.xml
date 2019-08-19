@@ -6,7 +6,7 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
 -->
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
     <!-- 保存日志文件的根目录,这个根据自己需求修改 -->
-    <property name="base_log_dir" value="logs/"/>
+    <property name="base_log_dir" value="logs/springboot-jap"/>
     <!-- 定义日志文件名称 -->
     <contextName>Demo</contextName>
     <!--控制台-->
