@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <!--控制台-->
+    <!-- 配置输出到控制台的日志样式 -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+
+        <encoder>
+            <pattern>%red(%d{yyyy-MM-dd HH:mm:ss.SSS}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger{36}) - %msg%n
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="console"/>
+    </root>
+
+    <!--特别制定该目录下为debug模式-->
+    <logger name="com.example" level="debug" additivity="false">
+        <appender-ref ref="console"/>
+    </logger>
+</configuration>
