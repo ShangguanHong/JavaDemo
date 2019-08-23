@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeController {
 
+
     @RequestMapping("/user/login")
     public String userLogin(@RequestParam(value = "username") String username,
                             @RequestParam(value = "password") String password) throws Exception {
@@ -23,9 +24,9 @@ public class HomeController {
         UserToken userToken = new UserToken(username, password, LoginTypeEnum.USER.getType());
         try {
             subject.login(userToken);
-            return "登陆成功";
+            return "用户登录成功";
         } catch (Exception e) {
-            return "登录失败";
+            return "用户登录失败";
         }
     }
 
@@ -37,9 +38,9 @@ public class HomeController {
         UserToken userToken = new UserToken(username, password, LoginTypeEnum.ADMIN.getType());
         try {
             subject.login(userToken);
-            return "登陆成功";
+            return "管理员登录成功";
         } catch (Exception e) {
-            return "登录失败";
+            return "管理员登录失败";
         }
     }
 }

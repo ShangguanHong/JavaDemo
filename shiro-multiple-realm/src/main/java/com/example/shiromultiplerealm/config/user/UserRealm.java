@@ -1,11 +1,12 @@
 package com.example.shiromultiplerealm.config.user;
 
-import com.example.shiromultiplerealm.domain.UserInfo;
-import com.example.shiromultiplerealm.repository.UserInfoRepository;
 import com.example.shiromultiplerealm.config.UserToken;
+import com.example.shiromultiplerealm.domain.SysUser;
+import com.example.shiromultiplerealm.repository.UserInfoRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
@@ -25,7 +26,11 @@ public class UserRealm extends AuthorizingRealm {
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         log.debug("UserRealm------------------->doGetAuthorizationInfo");
-        return null;
+        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+        // 应该从数据库中读取并且采用缓存的机制
+        // 这里为了简单就写死了
+        info.addRole("user");
+        return info;
     }
 
     @Override
@@ -36,7 +41,7 @@ public class UserRealm extends AuthorizingRealm {
         // 2. 从UserToken中获取username
         String username = userToken.getUsername();
         // 3. 若用户不存在，抛出UnknownAccountException异常
-        UserInfo user = userInfoRepository.findByUsername(username);
+        SysUser user = userInfoRepository.findByUsername(username);
         if (user == null) {
             throw new UnknownAccountException("用户不存在！");
         }

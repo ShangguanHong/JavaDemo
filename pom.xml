@@ -22,6 +22,7 @@
         <module>springboot-mapstruct</module>
         <module>shiro-single-realm</module>
         <module>shiro-multiple-realm</module>
+        <module>shiro-jwt</module>
     </modules>
 
     <build>

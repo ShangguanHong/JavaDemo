@@ -1,11 +1,12 @@
 package com.example.shiromultiplerealm.config.admin;
 
+import com.example.shiromultiplerealm.config.UserToken;
 import com.example.shiromultiplerealm.domain.SysAdmin;
 import com.example.shiromultiplerealm.repository.SysAdminRepository;
-import com.example.shiromultiplerealm.config.UserToken;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
@@ -24,8 +25,11 @@ public class AdminRealm extends AuthorizingRealm {
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         log.debug("AdminRealm---------------->doGetAuthorizationInfo");
-        // TODO: 管理员权限赋予
-        return null;
+        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+        // 应该从数据库中读取并且采用缓存的机制
+        // 这里为了简单就写死了
+        info.addRole("admin");
+        return info;
     }
 
     @Override

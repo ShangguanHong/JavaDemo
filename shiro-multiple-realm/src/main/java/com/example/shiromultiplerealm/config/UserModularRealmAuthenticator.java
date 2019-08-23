@@ -9,7 +9,6 @@ import org.apache.shiro.realm.Realm;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 /**
  * @author sgh
@@ -20,29 +19,26 @@ public class UserModularRealmAuthenticator extends ModularRealmAuthenticator {
 
     /**
      * 自定义doAuthenticator
-     *
-     * @param authenticationToken authenticationToken
-     * @return AuthenticationInfo AuthenticationInfo
-     * @throws AuthenticationException AuthenticationException
      */
     @Override
     protected AuthenticationInfo doAuthenticate(AuthenticationToken authenticationToken) throws AuthenticationException {
         log.debug("UserModularRealmAuthenticator----------->doAuthenticate");
-        // 强制转换回自定义的CustomizedToken
+        // 强制转换回自定义的UserToken
         UserToken userToken = (UserToken) authenticationToken;
         // 获取登录类型
         String loginType = userToken.getLoginType();
         // 所有Realm
         Collection<Realm> realms = getRealms();
         // 登录类型对应的所有Realm
-        List<Realm> typeRealms = new ArrayList<>();
+        Collection<Realm> typeRealms = new ArrayList<>();
         realms.forEach(realm -> {
+            // 利用 realm 的全限定包名来进行判断
             if (realm.getName().contains(loginType)) {
                 typeRealms.add(realm);
             }
         });
         if (typeRealms.size() == 1) {
-            return doSingleRealmAuthentication(typeRealms.get(0), userToken);
+            return doSingleRealmAuthentication(typeRealms.iterator().next(), userToken);
         } else {
             return doMultiRealmAuthentication(typeRealms, userToken);
         }
