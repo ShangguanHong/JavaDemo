@@ -9,7 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MybatisPlusApplication {
 
     public static void main(String[] args) {
+        System.out.println("This Application run before");
         SpringApplication.run(MybatisPlusApplication.class, args);
+        System.out.println("This Application run after");
     }
 
 }
