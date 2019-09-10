@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,8 +18,9 @@ import java.util.Set;
 @Data
 @Table(name = "sys_user")
 @EqualsAndHashCode(exclude = {"roles"})
-public class User {
+public class User implements Serializable {
 
+    private static final long serialVersionUID = -6007521359175928855L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
