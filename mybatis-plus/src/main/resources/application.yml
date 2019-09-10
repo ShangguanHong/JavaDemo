@@ -9,5 +9,5 @@ spring:
 # MP配置
 mybatis-plus:
   mapper-locations: classpath:mybatis/mapper/*.xml
-  config-location: classpath:mybatis/mybatis-config.xml
+  config-location: classpath:mybatis/mybatis-com.example.redis.config.xml
   type-aliases-package: com.example.mybatisplus.entity

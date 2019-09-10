@@ -26,7 +26,7 @@ spring:
     maxOpenPreparedStatements: 20
 
 mybatis:
-  config-location: classpath:mybatis/mybatis-config.xml
+  config-location: classpath:mybatis/mybatis-com.example.redis.config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
   type-aliases-package: com.example.mybatis.model
 
