@@ -22,6 +22,12 @@ public class RedisTest {
 
     @Test
     public void test1() {
+        User user = userService.findById(1);
+        System.out.println(user);
+    }
+
+    @Test
+    public void test2() {
         User user = userService.findById(2);
         System.out.println(user);
         user.setUsername("sgh");
@@ -29,4 +35,12 @@ public class RedisTest {
         user = userService.findById(2);
         System.out.println(user);
     }
+
+    @Test
+    public void test3() {
+        User user = userService.findById(1);
+        System.out.println(user);
+        userService.deleteById(1);
+    }
+
 }

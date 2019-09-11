@@ -29,19 +29,19 @@ public class UserServiceImpl implements UserService {
     @Override
     @CacheEvict(allEntries = true)
     public void add(User user) {
-        System.out.println("增加了用户");
+        System.out.println("增加了id为" + user.getId() + "的用户");
     }
 
     @Override
     @CachePut(key = "#user.getId()")
     public User update(User user) {
-        System.out.println("增加了用户");
+        System.out.println("修改了id为" + user.getId() + "的用户");
         return user;
     }
 
     @Override
     @CacheEvict(key = "#p0")
     public void deleteById(Integer id) {
-        System.out.println("删除了用户");
+        System.out.println("删除了id为" + id + "的用户");
     }
 }
