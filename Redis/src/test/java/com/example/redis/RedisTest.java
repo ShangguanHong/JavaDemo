@@ -32,14 +32,41 @@ public class RedisTest {
     @Resource
     private UserService userService;
 
+    @Resource
+    private RedisTemplate<String, Object> redisTemplate;
+
+    @Test
+    public void test() {
+        User user;
+        int id = 1;
+        String key = String.valueOf(id);
+        if (redisTemplate.hasKey(key)) {
+            System.out.println("从redis缓存中查询用户");
+            user = (User) redisTemplate.opsForValue().get(key);
+        } else {
+            System.out.println("从数据库中查询用户");
+            user = new User();
+            user.setId(id);
+            user.setUsername("username:" + id);
+            redisTemplate.opsForValue().set(key, user);
+        }
+        System.out.println(user);
+    }
+
+    /**
+     * redis缓存查找
+     */
     @Test
     public void test1() {
         User user = userService.findById(1);
         System.out.println(user);
-        redisUtil.set("user", user.toString());
-        redisUtil.hset("hash", "test", user);
+        User user1 = userService.findById(1);
+        System.out.println(user1);
     }
 
+    /**
+     * redis缓存更新
+     */
     @Test
     public void test2() {
         User user = userService.findById(2);
@@ -50,6 +77,9 @@ public class RedisTest {
         System.out.println(user);
     }
 
+    /**
+     * redis缓存删除
+     */
     @Test
     public void test3() {
         User user = userService.findById(1);

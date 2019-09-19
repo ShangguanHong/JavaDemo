@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 @CacheConfig(cacheNames = "user")
 public class UserServiceImpl implements UserService {
 
+
     @Override
     @Cacheable(key = "#p0")
     public User findById(Integer id) {
@@ -24,12 +25,6 @@ public class UserServiceImpl implements UserService {
         user.setId(id);
         user.setUsername("username:" + id.toString());
         return user;
-    }
-
-    @Override
-    @CacheEvict(allEntries = true)
-    public void add(User user) {
-        System.out.println("增加了id为" + user.getId() + "的用户");
     }
 
     @Override

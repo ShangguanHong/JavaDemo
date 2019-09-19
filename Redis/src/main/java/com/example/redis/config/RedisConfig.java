@@ -55,16 +55,18 @@ public class RedisConfig extends CachingConfigurerSupport {
     @Bean
     public KeyGenerator keyGenerator() {
         //为给定的方法及其参数生成一个键
-        //格式为：com.frog.mvcdemo.controller.FrogTestController-show-[params]
+        //格式为：target:method:[parms]
         return (target, method, params) -> {
             StringBuilder sb = new StringBuilder();
             sb.append(target.getClass().getName());//类名
             sb.append(":");
             sb.append(method.getName());//方法名
-            sb.append(":");
+            sb.append(":[");
             for (Object param : params) {
                 sb.append(param.toString());//参数
+                sb.append("-");
             }
+            sb.append("]");
             return sb.toString();
         };
     }
@@ -111,23 +113,12 @@ public class RedisConfig extends CachingConfigurerSupport {
 
     @Bean
     public RedisCacheConfiguration redisCacheConfiguration() {
-        Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer;
         RedisSerializationContext.SerializationPair pair = RedisSerializationContext.SerializationPair
                 .fromSerializer(getSerializer());
         return RedisCacheConfiguration.defaultCacheConfig()
                 .entryTtl(Duration.ofSeconds(300))
                 .serializeValuesWith(pair);
     }
-
-    private Jackson2JsonRedisSerializer<Object> getSerializer() {
-        Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
-        ObjectMapper om = new ObjectMapper();
-        om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
-        om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
-        jackson2JsonRedisSerializer.setObjectMapper(om);
-        return jackson2JsonRedisSerializer;
-    }
-
 
     @Bean
     public RedisCacheManager cacheManager(RedisConnectionFactory connectionFactory) {
@@ -136,6 +127,18 @@ public class RedisConfig extends CachingConfigurerSupport {
         //初始化RedisCacheManager
         RedisCacheManager cacheManager = new RedisCacheManager(redisCacheWriter, redisCacheConfiguration());
         return cacheManager;
+    }
+
+    /**
+     * jackson序列化Redis
+     */
+    private Jackson2JsonRedisSerializer<Object> getSerializer() {
+        Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
+        ObjectMapper om = new ObjectMapper();
+        om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+        om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+        jackson2JsonRedisSerializer.setObjectMapper(om);
+        return jackson2JsonRedisSerializer;
     }
 }
 

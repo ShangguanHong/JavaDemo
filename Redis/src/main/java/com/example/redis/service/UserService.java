@@ -10,8 +10,6 @@ public interface UserService {
 
     User findById(Integer id);
 
-    void add(User user);
-
     User update(User user);
 
     void deleteById(Integer id);
