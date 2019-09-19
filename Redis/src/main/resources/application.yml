@@ -1,4 +1,6 @@
 spring:
+  cache:
+    type: redis
   datasource:
     username: root
     password: root

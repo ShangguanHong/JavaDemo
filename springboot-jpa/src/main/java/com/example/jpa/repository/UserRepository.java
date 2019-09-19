@@ -1,5 +1,6 @@
 package com.example.jpa.repository;
 
+import com.example.jpa.domain.Teacher;
 import com.example.jpa.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -7,6 +8,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * @author sgh
@@ -27,4 +29,6 @@ public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificat
     void deleteByUserId(Long id);
 
     User findByUsername(String username);
+
+    List<User> findAllByTeacher(Teacher teacher);
 }

@@ -1,8 +1,6 @@
 package com.example.redis.domain;
 
 import lombok.Data;
-import org.hibernate.annotations.Generated;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
