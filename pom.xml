@@ -10,7 +10,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>SpringBootDemo</artifactId>
+    <artifactId>JavaDemo</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
@@ -24,7 +24,6 @@
         <module>shiro-multiple-realm</module>
         <module>shiro-jwt</module>
         <module>mybatis-plus</module>
-        <module>test</module>
         <module>Redis</module>
     </modules>
     <dependencies>
